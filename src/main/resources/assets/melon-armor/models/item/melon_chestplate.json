@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures":
+  {
+    "layer0": "melon-armor:item/melon_chestplate"
+  }
+}
