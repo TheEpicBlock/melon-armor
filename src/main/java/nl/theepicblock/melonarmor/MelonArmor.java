@@ -13,6 +13,8 @@ import org.apache.logging.log4j.Logger;
 public class MelonArmor implements ModInitializer {
 	public static final String MODID = "melon-armor";
 
+	public static final Identifier MELON_OVERLAY = id("textures/misc/melonoverlay.png");
+
 	public static final MelonMaterial MELON_MATERIAL = new MelonMaterial();
 	public static final ArmorItem MELON_HELMET = new ArmorItem(MELON_MATERIAL, EquipmentSlot.HEAD, new Item.Settings().group(ItemGroup.COMBAT));
 	public static final ArmorItem MELON_CHESTPLATE = new ArmorItem(MELON_MATERIAL, EquipmentSlot.CHEST, new Item.Settings().group(ItemGroup.COMBAT));
