@@ -2,9 +2,7 @@ package nl.theepicblock.melonarmor;
 
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.item.ArmorItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
+import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import org.apache.logging.log4j.LogManager;
@@ -16,10 +14,16 @@ public class MelonArmor implements ModInitializer {
 	public static final Identifier MELON_OVERLAY = id("textures/misc/melonoverlay.png");
 
 	public static final MelonMaterial MELON_MATERIAL = new MelonMaterial();
-	public static final ArmorItem MELON_HELMET = new ArmorItem(MELON_MATERIAL, EquipmentSlot.HEAD, new Item.Settings().group(ItemGroup.COMBAT));
-	public static final ArmorItem MELON_CHESTPLATE = new ArmorItem(MELON_MATERIAL, EquipmentSlot.CHEST, new Item.Settings().group(ItemGroup.COMBAT));
-	public static final ArmorItem MELON_LEGGINGS = new ArmorItem(MELON_MATERIAL, EquipmentSlot.LEGS, new Item.Settings().group(ItemGroup.COMBAT));
-	public static final ArmorItem MELON_BOOTS = new ArmorItem(MELON_MATERIAL, EquipmentSlot.FEET, new Item.Settings().group(ItemGroup.COMBAT));
+	public static final FoodComponent MELON_ARMOR_FOOD = new FoodComponent.Builder().hunger(FoodComponents.MELON_SLICE.getHunger()*2).saturationModifier(FoodComponents.MELON_SLICE.getSaturationModifier()*2).build();
+
+	public static final ArmorItem MELON_HELMET = new MelonArmorItem(MELON_MATERIAL, EquipmentSlot.HEAD, armorSettings());
+	public static final ArmorItem MELON_CHESTPLATE = new MelonArmorItem(MELON_MATERIAL, EquipmentSlot.CHEST, armorSettings());
+	public static final ArmorItem MELON_LEGGINGS = new MelonArmorItem(MELON_MATERIAL, EquipmentSlot.LEGS, armorSettings());
+	public static final ArmorItem MELON_BOOTS = new MelonArmorItem(MELON_MATERIAL, EquipmentSlot.FEET, armorSettings());
+
+	public static Item.Settings armorSettings() {
+		return new Item.Settings().group(ItemGroup.COMBAT).food(MELON_ARMOR_FOOD);
+	}
 
 	@Override
 	public void onInitialize() {
