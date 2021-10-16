@@ -9,7 +9,7 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 
 public class MelonMaterial implements ArmorMaterial {
-    private static final int[] DURABILITY = new int[]{13/2, 15/2, 16/2, 11/2};
+    private static final int[] DURABILITY = new int[]{2, 2, 2, 1};
 
     @Override
     public int getDurability(EquipmentSlot slot) {
